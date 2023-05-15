@@ -1,3 +1,6 @@
+const dotenv = require("dotenv");
+dotenv.config({ path: "./config/config.env" });
+
 const express = require("express");
 const { connection } = require("./database/db");
 const mongoose = require("mongoose");
@@ -21,6 +24,7 @@ connection();
 app.get("/", (req, res) => {
   res.send("Hello, world!");
 });
+
 app.use("/employees", employeeRouter);
 app.use("/admin", adminRouter);
 app.use("/tasks", taskRouter);

@@ -1,11 +1,14 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config({ path: "./config/config.env" });
 
 function connection() {
-    const mongoURL = "mongodb+srv://rahil10x:rahil10x@cluster0.umpp81b.mongodb.net/?retryWrites=true&w=majority"
-    mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
-    console.log("DB Connected")
-})
+  const mongoURL = process.env.MONGODB_URI;
+  mongoose
+    .connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+      console.log("DB Connected");
+    });
 }
 
-
-module.exports.connection = connection; 
+module.exports.connection = connection;

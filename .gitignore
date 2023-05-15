@@ -1,3 +1,5 @@
 /node_modules
 .env
 TBD.txt
+/config
+/config/*
